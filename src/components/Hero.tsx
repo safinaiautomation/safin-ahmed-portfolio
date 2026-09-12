@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 
 const STACK = [
@@ -30,72 +29,48 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-medium tracking-wide text-emerald-300"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-medium tracking-wide text-emerald-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
           AVAILABLE FOR AUTOMATION PROJECTS
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl"
-        >
+        {/* Critical LCP element: rendered immediately without JS animation delay */}
+        <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
           AI Automation &amp;{" "}
           <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
             n8n Workflow
           </span>{" "}
           Expert
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-slate-400 sm:text-lg"
-        >
+        <p className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-slate-300 sm:text-lg">
           I build AI-powered automation systems that help businesses automate
           repetitive tasks, qualify leads, manage customer support, and
           streamline sales workflows.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3"
-        >
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <button
             onClick={() => scrollTo("#projects")}
-            className="group inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-105"
+            className="group inline-flex min-h-[48px] items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-emerald-300 hover:scale-105 active:scale-95"
           >
             View My Projects
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
           <button
             onClick={() => scrollTo("#contact")}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10"
+            className="inline-flex min-h-[48px] items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all hover:bg-white/10 hover:border-white/30 active:scale-95"
           >
             <Mail className="h-4 w-4" />
             Contact Me
           </button>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-16 w-full"
-        >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+        <div className="mt-16 w-full">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
             Core Stack
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             {STACK.map((item) => (
               <span
                 key={item}
@@ -105,8 +80,9 @@ export default function Hero() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
+

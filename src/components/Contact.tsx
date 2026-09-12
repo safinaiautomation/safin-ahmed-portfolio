@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, Globe, MessageCircle, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import Reveal from "./Reveal";
 
 const CONTACT_EMAIL = "safin.new03@gmail.com";
 const TELEGRAM_URL = "https://t.me/SafinAIAutomation";
+
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -56,14 +57,9 @@ export default function Contact() {
   return (
     <section id="contact" className="relative bg-slate-950 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent p-8 text-center sm:p-14"
-        >
+        <Reveal className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent p-8 text-center sm:p-14">
           <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-500/20 blur-[100px]" />
+
 
           <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
             Contact
@@ -171,14 +167,10 @@ export default function Contact() {
             </button>
 
             {status === "success" && (
-              <motion.div
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-3 text-sm text-emerald-300"
-              >
+              <div className="flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-3 text-sm text-emerald-300 transition-opacity">
                 <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
                 Thank you! Your message has been sent successfully. I will get back to you soon.
-              </motion.div>
+              </div>
             )}
 
             {status === "error" && (
@@ -219,7 +211,7 @@ export default function Contact() {
               Chat / Telegram
             </a>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

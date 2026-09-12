@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { Cpu, GitBranch, ShieldCheck } from "lucide-react";
+import Reveal from "./Reveal";
 
 const POINTS = [
   {
@@ -24,50 +24,42 @@ export default function About() {
     <section id="about" className="relative bg-slate-950 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-          >
+          <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
               About Me
             </p>
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               I build practical AI automation systems.
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-slate-400">
+            <p className="mt-6 text-base leading-relaxed text-slate-300">
               Using n8n, AI agents, APIs, and business tools, my focus is
               turning repetitive business processes into reliable workflows
               that are easier to manage, scale, and monitor.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-400">
+            <p className="mt-4 text-base leading-relaxed text-slate-300">
               I work with AI-powered lead qualification, customer support
               automation, RAG systems, sales outreach, human approval
               workflows, and API-based automation.
             </p>
-          </motion.div>
+          </Reveal>
 
           <div className="grid gap-5 sm:grid-cols-1">
             {POINTS.map((point, i) => (
-              <motion.div
+              <Reveal
                 key={point.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-emerald-400/30"
+                delay={i * 80}
+                className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all hover:border-emerald-400/30 hover:bg-white/[0.05]"
               >
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-400/10 text-emerald-400">
                   <point.icon className="h-5 w-5" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">{point.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-300">
                     {point.text}
                   </p>
                 </div>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -75,3 +67,4 @@ export default function About() {
     </section>
   );
 }
+

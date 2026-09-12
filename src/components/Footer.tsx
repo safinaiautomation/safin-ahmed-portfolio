@@ -12,7 +12,7 @@ export default function Footer() {
             SAFIN <span className="text-emerald-400">AHMED</span>
           </span>
         </div>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-slate-400">
           © {new Date().getFullYear()} — AI Automation &amp; n8n Workflow Systems.
         </p>
       </div>

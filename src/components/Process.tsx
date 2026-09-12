@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { Search, PenTool, Hammer, FlaskConical, PackageCheck } from "lucide-react";
+import Reveal from "./Reveal";
 
 const STEPS = [
   {
@@ -33,46 +33,38 @@ export default function Process() {
   return (
     <section id="process" className="relative bg-slate-950 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-2xl text-center"
-        >
+        <Reveal className="mx-auto mb-16 max-w-2xl text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
             How I Work
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             A straightforward, repeatable process
           </h2>
-        </motion.div>
+        </Reveal>
 
         <div className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           <div className="absolute top-10 hidden h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent lg:block" />
           {STEPS.map((step, i) => (
-            <motion.div
+            <Reveal
               key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center"
+              delay={i * 70}
+              className="relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center transition-all hover:border-emerald-400/30 hover:bg-white/[0.05]"
             >
-              <span className="absolute -top-3 right-4 font-mono text-xs text-slate-600">
+              <span className="absolute -top-3 right-4 font-mono text-xs font-semibold text-emerald-400/80">
                 0{i + 1}
               </span>
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 text-emerald-400">
                 <step.icon className="h-6 w-6" />
               </div>
               <h3 className="font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-400">
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 {step.text}
               </p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

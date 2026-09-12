@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Workflow,
   Bot,
@@ -7,6 +6,7 @@ import {
   Send,
   Plug,
 } from "lucide-react";
+import Reveal from "./Reveal";
 
 const SERVICES = [
   {
@@ -45,29 +45,20 @@ export default function Services() {
   return (
     <section id="services" className="relative bg-slate-950 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-2xl text-center"
-        >
+        <Reveal className="mx-auto mb-16 max-w-2xl text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
             What I Build
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Automation systems that solve real business problems
           </h2>
-        </motion.div>
+        </Reveal>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => (
-            <motion.div
+            <Reveal
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
+              delay={(i % 3) * 70}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-all hover:-translate-y-1 hover:border-emerald-400/30 hover:bg-white/[0.05]"
             >
               <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-emerald-400/0 blur-2xl transition-colors group-hover:bg-emerald-400/10" />
@@ -77,13 +68,14 @@ export default function Services() {
               <h3 className="text-lg font-semibold text-white">
                 {service.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-400">
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 {service.text}
               </p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

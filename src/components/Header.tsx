@@ -84,9 +84,10 @@ export default function Header() {
         </div>
 
         <button
-          className="text-white md:hidden"
+          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -102,7 +103,7 @@ export default function Header() {
                 e.preventDefault();
                 handleNavClick(link.href);
               }}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white"
+              className="flex min-h-[44px] items-center rounded-lg px-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white"
             >
               {link.label}
             </a>
@@ -113,7 +114,7 @@ export default function Header() {
               e.preventDefault();
               handleNavClick("#contact");
             }}
-            className="mt-2 rounded-lg bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-950"
+            className="mt-2 flex min-h-[44px] items-center justify-center rounded-lg bg-white px-3 text-center text-sm font-semibold text-slate-950"
           >
             Contact Me
           </a>
