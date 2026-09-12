@@ -23,8 +23,8 @@ export const PROJECTS: Project[] = [
     stack: ["n8n", "Gemini", "Gmail", "Google Sheets"],
     summary:
       "An AI-powered lead triage workflow that receives leads via webhook, cleans the data, qualifies leads as HOT/WARM/COLD, and automatically routes each lead to the appropriate action.",
-    thumbnail: "/images/projects/lead-qualification/thumbnail.png",
-    canvas: "/images/projects/lead-qualification/workflow-canvas.png",
+    thumbnail: "/images/projects/lead-qualification/thumbnail.webp",
+    canvas: "/images/projects/lead-qualification/workflow-canvas.webp",
     canvasCaption: "The n8n workflow canvas for the AI lead qualification & routing system.",
     pdf: "/case-studies/ai-lead-qualification-case-study.pdf",
     pdfLabel: "Lead Qualification — PDF",
@@ -53,8 +53,8 @@ export const PROJECTS: Project[] = [
     stack: ["n8n", "Gemini", "Supabase", "Google Docs"],
     summary:
       "A RAG-based customer support system that indexes internal documentation, stores embeddings in Supabase, retrieves relevant knowledge, and generates context-aware answers using Gemini. Queries that need additional review can be escalated to a human.",
-    thumbnail: "/images/projects/customer-support-rag/thumbnail.png",
-    canvas: "/images/projects/customer-support-rag/workflow-canvas.png",
+    thumbnail: "/images/projects/customer-support-rag/thumbnail.webp",
+    canvas: "/images/projects/customer-support-rag/workflow-canvas.webp",
     canvasCaption: "The n8n workflow canvas for the AI customer support RAG automation.",
     pdf: "/case-studies/ai-customer-support-rag-case-study.pdf",
     pdfLabel: "Customer Support RAG — PDF",
@@ -84,8 +84,8 @@ export const PROJECTS: Project[] = [
     stack: ["n8n", "Google Sheets", "Gmail", "AI"],
     summary:
       "An automated B2B outreach workflow that prepares leads, generates personalized emails with AI, requires human approval before sending, and manages follow-ups and lead status updates.",
-    thumbnail: "/images/projects/sales-outreach/thumbnail.png",
-    canvas: "/images/projects/sales-outreach/workflow-canvas.png",
+    thumbnail: "/images/projects/sales-outreach/thumbnail.webp",
+    canvas: "/images/projects/sales-outreach/workflow-canvas.webp",
     canvasCaption: "The n8n workflow canvas for the AI sales outreach & follow-up automation.",
     pdf: "/case-studies/ai-sales-outreach-case-study.pdf",
     pdfLabel: "Sales Outreach — PDF",
